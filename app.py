@@ -32,11 +32,20 @@ def index():
     allTodo = Todo.query.all()
     return render_template("index.html", allTodo=allTodo)
 
-@app.route("/update")
-def update():
-    return "<p>Hello, World!</p>"
 
 
+@app.route("/update/<int:sno>", methods=["GET", "POST"])
+def update(sno):
+    todo = Todo.query.get_or_404(sno)
+    allTodo = Todo.query.all()
+
+    if request.method == "POST":
+        todo.title = request.form["title"]
+        todo.disc = request.form["disc"]
+        db.session.commit()
+        return redirect("/")
+
+    return render_template("update.html", todo=todo, allTodo=allTodo)
 
 
 @app.route("/delete/<int:sno>")
