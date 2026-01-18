@@ -123,14 +123,6 @@ flask2025/
 
 ---
 
-## Future Improvements (Optional)
-
-* User authentication
-* Task completion status
-* Search and filter functionality
-* Cloud deployment
-
----
 
 ## Contributing
 
